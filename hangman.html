@@ -1,0 +1,46 @@
+<!Doctype HTML>
+<html>
+<head>
+<title>
+	Виселица
+</title>
+<!--Comment c c++ c#-->
+<meta charset="utf-8">
+
+</head>
+<body>
+	<h1>Игра в угадывание слов!</h1>
+	<p id="demo">Машина задумала слово, попробуй угадать!</p>
+
+<script type="text/javascript">
+	var words = ['белый', 'черный', 'синий', 'зеленый'];
+	var word = words[Math.floor(Math.random()*words.length)];
+
+	var answer = [];
+	for (var i=0; i<word.length; i++){
+		answer[i] = '_'; 
+	} //Черточек в списке answer  будет столько, сколько букв в задуманном слове
+
+	var lettersleft = word.length;
+
+	//Начинаем игровой цикл
+	while (lettersleft>0){
+		alert(answer.join(' '));
+		var guess = prompt('Ваша буква: ');
+		for(var i=0; i<word.length; i++){
+			if(word[i] == guess){
+				answer[i] = guess;
+				lettersleft--;
+			}
+		}
+
+	}
+
+	alert('Поздравляем! Вы угадали слово - ' + word);
+
+
+</script>
+
+</body>
+
+</html>
